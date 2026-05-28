@@ -1,0 +1,27 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const items = ["board"];
+---
+
+<Layout>
+	<div class="w-screen h-screen bg-neutral-950 text-neutral-300 p-8">
+		<div class="h-full w-full">
+			{
+				items.map((item) => (
+					<div class="group relative border border-neutral-400 h-40 w-40 rounded-3xl overflow-hidden shadow-2xl">
+						<iframe
+							src={item}
+							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1280px] h-[800px] pointer-events-none"
+						/>
+
+						<a
+							href={item}
+							class="absolute inset-0 cursor-pointer bg-black/0 transition-colors duration-200 group-hover:bg-black/50"
+						/>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</Layout>
