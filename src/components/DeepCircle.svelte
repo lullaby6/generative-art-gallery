@@ -1,8 +1,8 @@
 <script lang="ts">
 	import P5Sketch, { type Sketch } from "@sveltecraft/p5-svelte";
 
-	const width = window.innerWidth;
-	const height = window.innerHeight;
+	let width = window.innerWidth;
+	let height = window.innerHeight;
 
 	const posVariation = 2.5;
 	const sizeVariation = 5;
@@ -14,9 +14,22 @@
 	let color = 255;
 
 	const sketch: Sketch = (p) => {
+		function setup() {
+			p.background(0);
+		}
+
+		window.addEventListener("resize", () => {
+			width = window.innerWidth;
+			height = window.innerHeight;
+
+			p.resizeCanvas(width, height);
+
+			setup();
+		});
+
 		p.setup = () => {
 			p.createCanvas(width, height);
-			p.background(0);
+
 			p.noStroke();
 		};
 
