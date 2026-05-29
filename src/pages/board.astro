@@ -1,18 +1,9 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import GenerativeArtLayout from "@/layouts/GenerativeArtLayout.astro";
 
 import Board from "@/components/Board.svelte";
 ---
 
-<Layout title="Generative Art Gallery - Board">
-	<main id="main">
-		<Board client:only />
-	</main>
-
-	<a
-		id="btn-back"
-		href="/"
-		class="absolute top-4 left-4 text-2xl cursor-pointer bg-white rounded-full px-4 pb-1 opacity-50 hover:opacity-100 transition-opacity">
-		←
-	</a>
-</Layout>
+<GenerativeArtLayout title="Generative Art Gallery - Board">
+	<Board client:only />
+</GenerativeArtLayout>
