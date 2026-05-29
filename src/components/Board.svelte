@@ -1,16 +1,15 @@
 <script lang="ts">
 	import P5Sketch, { type Sketch } from "@sveltecraft/p5-svelte";
 
-	const width = window.innerWidth;
-	const height = window.innerHeight;
+	let width = window.innerWidth;
+	let height = window.innerHeight;
 
 	const cellSize = 30;
 	const cellPadding = 5;
 	const interval = 1000;
 
 	const sketch: Sketch = (p) => {
-		p.setup = () => {
-			p.createCanvas(width, height);
+		function setup() {
 			p.background(255);
 
 			for (let i = 0; i < width; i += cellSize + cellPadding) {
@@ -19,6 +18,21 @@
 					p.rect(i, j, cellSize);
 				}
 			}
+		}
+
+		window.addEventListener("resize", () => {
+			width = window.innerWidth;
+			height = window.innerHeight;
+
+			p.resizeCanvas(width, height);
+
+			setup();
+		});
+
+		p.setup = () => {
+			p.createCanvas(width, height);
+
+			setup();
 		};
 
 		let lastDraw = 0;
