@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE: /generative-art-gallery/
+          PUBLIC_BASE: /generative-art-gallery/
 
       - name: Deploy dist branch
         uses: peaceiris/actions-gh-pages@v4

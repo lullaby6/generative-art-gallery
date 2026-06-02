@@ -2,19 +2,19 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 
-
 import svelte from "@astrojs/svelte";
-
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-      plugins: [tailwindcss()],
-  },
+    base: process.env.PUBLIC_BASE ?? '/',
 
-  server: {
-      port: 3001
-  },
+    vite: {
+        plugins: [tailwindcss()],
+    },
 
-  integrations: [svelte()]
+    server: {
+        port: 3001
+    },
+
+    integrations: [svelte()]
 });

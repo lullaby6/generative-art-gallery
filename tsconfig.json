@@ -8,6 +8,9 @@
     "dist"
   ],
   "compilerOptions": {
+    "types": [
+      "node"
+    ],
     "paths": {
       "@/*": [
         "./src/*"
